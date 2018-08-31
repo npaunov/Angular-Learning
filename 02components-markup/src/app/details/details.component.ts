@@ -13,6 +13,7 @@ export class DetailsComponent{
   size = 20;
   textColor = 'black';
   backgroundColor = 'white';
+  imageSize = 300;
 
   showHideImage () {
     this.showImage = !this.showImage;
@@ -36,6 +37,22 @@ export class DetailsComponent{
 
   changeBackgroundColor (event){
     this.backgroundColor = event.target.value;
+  }
+
+  increaseImageSize(){
+    this.imageSize += 15;
+    // if(this.currentSize < 50) {
+    //   this.currentSize +=5;
+    //   this.fontSize.emit(this.currentSize);
+    // }
+  }
+
+  decreaseImageSize(){
+    this.imageSize -= 15;
+    // if(this.currentSize > 10){
+    //   this.currentSize -=5;
+    //   this.fontSize.emit(this.currentSize);
+    // }
   }
 
 }

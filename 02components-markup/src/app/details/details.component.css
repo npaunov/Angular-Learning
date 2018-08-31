@@ -1,12 +1,10 @@
-img {
-    width: 300px;
-    display: block;
-}
-
 p {
     text-align: justify;
 }
 
 div.image {
     float: left;
+}
+.imb_button{
+    margin: 5px;
 }

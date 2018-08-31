@@ -1,8 +1,13 @@
 <controls (fontSize)='changeSize($event)' (textColor)='changeTextColor($event)' (backGroundColor)='changeBackgroundColor($event)'>
 </controls>
 <div class='image'>
-  <img *ngIf='showImage' src='{{article.image}}' />
+  <img *ngIf='showImage'[style.width.px]='imageSize' [style.height.px]='imageSize' src='{{article.image}}' />
   <button (click)='showHideImage()'>Show/Hide Image</button>
+<div *ngIf='showImage'>
+  <button class="imb_button" (click)="decreaseImageSize()">-</button>
+  <span> Image Size {{imageSize}} px</span>
+  <button class="imb_button" (click)="increaseImageSize()">+</button>
+</div>
 </div>
 <h1>{{article.title}}</h1>
 <h3>By: {{article.author}}</h3>
