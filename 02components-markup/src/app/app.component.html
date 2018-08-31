@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <ul>
+      <li *ngFor='let article of articles' (click)='selectArticle(article)'>
+        {{article.title}}
+      </li>
+      <details [article]='currentArticle'></details>
+    </ul>
+</div>
+
+
