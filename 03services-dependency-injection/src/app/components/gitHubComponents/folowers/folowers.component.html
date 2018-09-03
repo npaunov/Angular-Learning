@@ -1,0 +1,13 @@
+<div *ngIf='gitHubFolowers'>
+    <ul>
+        <h3>Folowers:</h3>
+        <li *ngFor='let folower of gitHubFolowers'>
+                <img src="{{folower.avatar_url}}"/>
+
+          <div class="divLi">
+                <div class="right">{{folower.login}}</div>
+                <span class="right"><a href="{{folower.html_url}}">{{folower.html_url}}</a></span>
+          </div>
+        </li>
+      </ul>
+</div>

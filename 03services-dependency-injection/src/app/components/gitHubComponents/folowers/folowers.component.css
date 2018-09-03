@@ -1,0 +1,22 @@
+ul {
+    list-style: none;
+    overflow: hidden;
+    width: 300px;
+  }
+li {
+    margin: 5px;
+    /* display: inline-block; */
+    border: 1px solid black;
+}
+img{
+    width: 50px;
+    float: left;
+}
+
+a{
+    word-wrap: none;
+}
+.divLi{
+    width: 100px !important;
+
+}
