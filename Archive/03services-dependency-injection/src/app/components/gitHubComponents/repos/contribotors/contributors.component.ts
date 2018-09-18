@@ -10,20 +10,26 @@ import { GitHubContributorModel } from '../../../models/gitHubContributorModel';
 })
 export class ContributorsComponent{
 
-    @Input()showContributors: boolean = true;
-    @Input()contributorUrl: string;
+    private _showContributors: boolean;
+
+    @Input() contributorUrl: string;
+
+    @Input()
+    set showContributors(showContributors: boolean){
+        debugger
+        this._showContributors = showContributors;
+        this.getContributors();
+    }
+    
+    get showContributors(){return this._showContributors}
 
     gitHubContributors: Array<GitHubContributorModel>
 
     constructor ( private contributorsData: GitHubContributorsService ) { }
 
-    ngOnChanges() {
-        debugger
-        this.getContributors();
-    }
-
     getContributors(): void{
-        if(this.showContributors){
+        debugger
+        if(this._showContributors){
             this.contributorsData
             .getData(this.contributorUrl)
             .then(contr => {

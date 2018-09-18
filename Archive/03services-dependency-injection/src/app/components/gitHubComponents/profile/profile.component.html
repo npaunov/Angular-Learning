@@ -1,0 +1,19 @@
+<div class="small-div">
+    <div>
+        <h1> Profile: {{gitHubProfileModel?.name}} </h1>
+        <img src="{{gitHubProfileModel?.avatar_url}}" />
+        <p>Company: {{gitHubProfileModel?.company}}</p>
+        <p>Bio: {{gitHubProfileModel?.bio}}</p>
+        <p>Location: {{gitHubProfileModel?.location}}</p>
+        <p>Public repos: {{gitHubProfileModel?.public_repos}}</p>
+        <p>Folowers: {{gitHubProfileModel?.followers}}</p>
+        <button (click)='activateFolowers()' #folowersButton>Show 10 folowers</button>
+        <button (click)='activateRepos()' #reposButton>Show 10 repos</button>
+    </div>
+    <div>
+        <folowers [showFolowers]='isFolowersVisible'></folowers>
+    </div>
+    <div>
+        <repos [showRepos]='isReposVisible'></repos>
+    </div>
+</div>

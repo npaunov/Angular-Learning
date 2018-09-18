@@ -9,20 +9,25 @@ import { GitgubRepoModel } from '../../models/gitHubRepoModel';
     styleUrls: ['./repos.component.css']
     
 })
-export class ReposComponent {   
+export class ReposComponent {
     
-    @Input() showRepos;
+    private _showRepos: boolean;
+
+    @Input()
+    set showRepos(showRepos: boolean){
+        this._showRepos = showRepos;
+        this.getRepos();
+    };
+
+    get showRepos(){ return this._showRepos }
+
     gitHubRepos: Array<GitgubRepoModel>;
 
-    showContributors: boolean = true;
+    showContributors: boolean = false;
     isContributorUrl: string;
     
 
     constructor ( private reposData: GitHubRepoService ) { }
-
-    ngOnChanges() {
-        this.getRepos()
-    }
 
     getRepos(): void {
         if(this.showRepos){
@@ -36,16 +41,13 @@ export class ReposComponent {
             this.gitHubRepos = [];
         }
 
-    }
-    
+    }    
 
     activateContributors(url:string){
-
+        this.showContributors = !this.showContributors;
         if(this.showContributors){
-            debugger
             this.isContributorUrl = url + '/contributors';
         }
-        // this.showContributors = !this.showContributors;
     }
 
 }

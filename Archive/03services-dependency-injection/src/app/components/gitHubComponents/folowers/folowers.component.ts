@@ -11,15 +11,23 @@ import { GitHubFolowerModel } from '../../models/gitHubFolowerModel';
 })
 export class FolowersComponent {   
     
-    @Input() showFolowers;
+
+    private _showFolowers;
+
+    @Input()
+    set showFolowers(showFolowers: boolean){
+        this._showFolowers = showFolowers;
+        this.getFolowers()
+    };
+
+    get showFolowers(): boolean { return this._showFolowers; }
+
+
     gitHubFolowers: Array<GitHubFolowerModel>;
     
 
     constructor ( private folowerData: GitHubFolowersService ) { }
 
-    ngOnChanges() {
-        this.getFolowers()
-    }
 
     getFolowers(): void {
         if(this.showFolowers){
@@ -33,11 +41,6 @@ export class FolowersComponent {
             this.gitHubFolowers = [];
         }
 
-    }
-    
-
-    f(e){
-        console.log(this.showFolowers)
     }
 
 }
