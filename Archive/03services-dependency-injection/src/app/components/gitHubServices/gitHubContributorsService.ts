@@ -15,7 +15,11 @@ export class GitHubContributorsService {
             .then(res => res.json().slice(0,10).map(item => {
                 var contributor = new GitHubContributorModel();
                  debugger
+                contributor.url = item.url;
+
                 
+                //  var something = ()=> this.http
+                //  .get(url)
 
                 contributor.avatar_url = item.avatar_url;
                 contributor.contributions = item.contributions;
